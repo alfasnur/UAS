@@ -1,0 +1,82 @@
+#include <iostream>
+
+using namespace std;
+
+struct barang{
+        string nama;
+        int harga, terjual, total;
+        const int gas= 22000;
+        const int beras = 7000;
+        const int bawang = 12000;
+        const int minyak = 11000;
+        const int terigu = 6500;
+        const int telor = 24000;
+        const int gula = 6000;
+        const int kemiri = 14000;
+        const int royco = 5500;
+        const int sasha = 8500;
+    };
+
+int main() {
+   
+    barang item[3];
+    string laku;
+    int max = 0;
+    int n=3, tot_pen=0;
+    
+    //pemberian harga barang berdasarkan nama 
+    for (int i=0; i < n; i++){
+        cout << "Nama Item Barang : ";
+        cin >> item[i].nama;
+        if(item[i].nama == "gas"){
+            item[i].harga = item[i].gas;
+        } else if(item[i].nama == "beras"){
+            item[i].harga = item[i].beras;	
+        } else if(item[i].nama == "bawang"){
+            item[i].harga = item[i].bawang;
+        } else if(item[i].nama == "minyak"){
+            item[i].harga = item[i].minyak;
+        } else if(item[i].nama == "terigu"){
+            item[i].harga = item[i].terigu;
+        } else if(item[i].nama == "telor"){
+            item[i].harga = item[i].telor;
+        } else if(item[i].nama == "gula"){
+            item[i].harga = item[i].gula;
+        } else if(item[i].nama == "kemiri"){
+            item[i].harga = item[i].kemiri;
+        } else if(item[i].nama == "royco"){
+            item[i].harga = item[i].royco;
+        } else if(item[i].nama == "sasha"){
+            item[i].harga = item[i].sasha;
+        }
+    
+        cout << "Jumlah terjual : ";
+        cin >> item[i].terjual;
+        //hitung total harga
+        item[i].total = item[i].harga*item[i].terjual;
+
+    }
+    //total penjualan suatu hari
+    for (int i=0; i < n; i++){
+        tot_pen= tot_pen + item[i].total;
+    }
+    //mencari item paling laku
+    for (int i=0; i < n; i++){
+        if(max < item[i].terjual){
+            max = item[i].terjual;
+            laku = item[i].nama;
+        }
+    }
+    
+    cout <<endl;
+    cout <<endl;
+    //output tabel
+    cout << "Nama item barang | Harga per item | jumlah terjual | total per item"<< endl;
+    for(int i=0; i < 3; i++){
+        cout << item[i].nama <<"                " << item[i].harga << "           "<< item[i].terjual<< "                " << item[i].total <<endl;
+    }
+    
+    cout << endl;
+    cout << "Total penjualan : " << tot_pen << endl;
+    cout << "Item yang paling laku adalah " << laku << endl;
+}
